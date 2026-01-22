@@ -4,8 +4,6 @@
 
 CoreWood automates the conversion of CAD files (STEP) to CNC machine code and generates technical documentation — reducing programming time by 96% and documentation errors by 40%.
 
-![CoreWood Banner](./assets/banner.png)
-
 ---
 
 ## 🎯 The Problem
@@ -51,14 +49,14 @@ All in one platform, with just a few clicks.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                        Frontend                              │
-│                     React + Vite                             │
+│                        Frontend                             │
+│                         React                               │
 └─────────────────────┬───────────────────────────────────────┘
                       │ REST API
 ┌─────────────────────▼───────────────────────────────────────┐
-│                        Backend                               │
-│                       FastAPI                                │
-│                                                              │
+│                        Backend                              │
+│                        FastAPI                              │
+│                                                             │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
 │  │ STEP Parser │  │ CNC Engine  │  │ Doc Generator       │  │
 │  │ (pythonOCC) │  │             │  │                     │  │
@@ -66,14 +64,16 @@ All in one platform, with just a few clicks.
 └─────────────────────┬───────────────────────────────────────┘
                       │
 ┌─────────────────────▼───────────────────────────────────────┐
-│                      Database                                │
-│                     PostgreSQL                               │
+│                      Database                               │
+│                     PostgreSQL                              │
 └─────────────────────────────────────────────────────────────┘
                       │
                       ▼
-              ┌───────────────┐
-              │   Senior ERP  │
-              └───────────────┘
+              ┌────────────────┐
+              │ HOMAG Machines | 
+              |       and      |
+              |   Senior ERP   │
+              └────────────────┘
 ```
 
 ---
@@ -82,7 +82,6 @@ All in one platform, with just a few clicks.
 
 **Frontend**
 - React 18
-- Vite
 - CSS Modules
 
 **Backend**
@@ -96,6 +95,7 @@ All in one platform, with just a few clicks.
 
 **Integrations**
 - Senior ERP (REST API)
+- HOMAG Machines
 
 ---
 
@@ -107,23 +107,20 @@ All in one platform, with just a few clicks.
 | Documentation errors | Frequent | Rare | **40% reduction** |
 | Information lookup time | 30+ min | < 1 min | **50% reduction** |
 | Teams using the platform | - | 5 areas | P&D, Engineering, Processes, Quality, Management |
-| Active users | - | 8 | Daily usage |
+| Active users | 8 
 
 ---
 
 ## 📸 Screenshots
 
-### Dashboard
-![Dashboard](./assets/dashboard.png)
-
 ### STEP File Parser
 ![STEP Parser](./assets/step-parser.png)
 
 ### CNC Drilling Editor
-![Drilling Editor](./assets/drilling-editor.png)
+![Drilling Editor](./assets/cc-editor.png)
 
 ### Technical Documentation
-![Documentation](./assets/documentation.png)
+![Documentation](./assets/example-doc.png)
 
 ---
 
@@ -157,5 +154,3 @@ CoreWood was developed at **Linea Brasil**, a furniture manufacturing company in
 This repository contains documentation only. The source code is proprietary.
 
 ---
-
-*Built with ☕ and a passion for connecting factory floor to digital.*
