@@ -142,9 +142,9 @@ CoreWood was developed at **Linea Brasil**, a furniture manufacturing company in
 
 ## 👤 Author
 
-**Enzo Pedrican**
-- [LinkedIn](https://linkedin.com/in/seu-linkedin)
-- [GitHub](https://github.com/seu-github)
+**Enzo Koyano Pedriça**
+- [LinkedIn](www.linkedin.com/in/enzo-koyano-pedriça)
+- [GitHub](https://github.com/enzokpedrica)
 - [Email](mailto:enzo.pedrica@gmail.com)
 
 ---
