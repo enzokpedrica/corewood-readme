@@ -1,4 +1,4 @@
-# CoreWood
+# 🪵CoreWood
 
 **Industrial automation platform that bridges CAD design to CNC manufacturing**
 
@@ -117,7 +117,7 @@ All in one platform, with just a few clicks.
 ![STEP Parser](./assets/step-parser.png)
 
 ### CNC Drilling Editor
-![Drilling Editor](./assets/cc-editor.png)
+![Drilling Editor](./assets/cnc-editor.png)
 
 ### Technical Documentation
 ![Documentation](./assets/example-doc.png)
