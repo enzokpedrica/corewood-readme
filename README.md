@@ -1,84 +1,84 @@
-# 🪵CoreWood
+# 🪵 CoreWood
 
-**Industrial automation platform that bridges CAD design to CNC manufacturing**
+**Plataforma de centralização e automação industrial para o fluxo CAD → CNC na indústria moveleira**
 
-CoreWood automates the conversion of CAD files (STEP) to CNC machine code and generates technical documentation — reducing programming time by 96% and documentation errors by 40%.
-
----
-
-## 🎯 The Problem
-
-In furniture manufacturing, the process from CAD design to CNC production involves:
-- Manual interpretation of 3D models
-- Time-consuming CNC code programming
-- Repetitive technical documentation creation
-- Scattered information across multiple systems
-- High error rates in drilling patterns and specs
-
-This workflow was taking **hours per piece** and causing production delays.
+O CoreWood nasceu da necessidade de centralizar as informações de produto em um único lugar. A partir de uma entrada de dados — como um arquivo STEP ou uma ficha de peça — a plataforma gera automaticamente tudo que a produção precisa: código CNC para as máquinas, documentação técnica de furação e usinagem, e o roteiro de produção por peça. Resultado: redução de 96% no tempo de programação e 40% nos erros de documentação.
 
 ---
 
-## 💡 The Solution
+## 🎯 O Problema
 
-CoreWood is a full-stack web application that automates the entire flow:
+Na fabricação de móveis, o caminho entre o projeto CAD e a produção CNC envolve:
+
+- Interpretação manual de modelos 3D
+- Programação manual e demorada de código CNC
+- Criação repetitiva de fichas técnicas e documentação
+- Informações dispersas em múltiplos sistemas
+- Alta taxa de erros em padrões de furação e especificações
+
+Esse fluxo consumia **horas por peça** e gerava atrasos recorrentes na produção.
+
+---
+
+## 💡 A Solução
+
+O CoreWood é uma aplicação web full-stack que automatiza todo esse processo em uma única plataforma:
 
 ```
-STEP File → Parse 3D Data → Generate CNC Code → Create Documentation
+Arquivo STEP → Leitura 3D → Geração de Código CNC → Documentação Técnica → Roteiro de Peça
 ```
+---
 
-All in one platform, with just a few clicks.
+## ⚡ Funcionalidades
+
+| Módulo | Descrição |
+|--------|-----------|
+| **Parser STEP** | Extrai dados geométricos de arquivos CAD (dimensões, pontos de furação, materiais) |
+| **Gerador CNC** | Converte automaticamente modelos 3D em código pronto para a máquina |
+| **Editor de Furação** | Editor visual de padrões de furação CNC com visualização em tempo real |
+| **Gerador de Documentação** | Gera fichas técnicas de produção automaticamente |
+| **Gestão de Peças** | Banco de dados centralizado de todos os componentes e produtos |
+| **Histórico e Versionamento** | Rastreamento de alterações e acesso a versões anteriores |
+| **Integração ERP** | Sincronização com o ERP Senior para importação e exportação de dados |
+| **Roteiro de Peças** | Processa exportações do ERP e gera arquivos TXT para reimportação |
+| **Módulo de Suporte** | Sistema interno de tickets para registro e acompanhamento de chamados |
 
 ---
 
-## ⚡ Key Features
-
-| Feature | Description |
-|---------|-------------|
-| **STEP Parser** | Extracts geometric data from CAD files (dimensions, drilling points, materials) |
-| **CNC Code Generator** | Automatically converts 3D models to machine-ready CNC code |
-| **Drilling Editor** | Visual editor for CNC drilling patterns with real-time preview |
-| **Documentation Generator** | Auto-generates technical sheets for production |
-| **Parts Management** | Centralized database for all product components |
-| **History & Versioning** | Track changes and access previous versions |
-| **ERP Integration** | Syncs with Senior ERP for seamless workflow |
-
----
-
-## 🏗️ Architecture
+## 🏗️ Arquitetura
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                        Frontend                             │
-│                         React                               │
-└─────────────────────┬───────────────────────────────────────┘
-                      │ REST API
-┌─────────────────────▼───────────────────────────────────────┐
-│                        Backend                              │
-│                        FastAPI                              │
-│                                                             │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
-│  │ STEP Parser │  │ CNC Engine  │  │ Doc Generator       │  │
-│  │ (pythonOCC) │  │             │  │                     │  │
-│  └─────────────┘  └─────────────┘  └─────────────────────┘  │
-└─────────────────────┬───────────────────────────────────────┘
-                      │
-┌─────────────────────▼───────────────────────────────────────┐
-│                      Database                               │
-│                     PostgreSQL                              │
-└─────────────────────────────────────────────────────────────┘
-                      │
-                      ▼
-              ┌────────────────┐
-              │ HOMAG Machines | 
-              |       and      |
-              |   Senior ERP   │
-              └────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                         Frontend                             │
+│                          React                               │
+└──────────────────────┬───────────────────────────────────────┘
+                       │ REST API
+┌──────────────────────▼───────────────────────────────────────┐
+│                         Backend                              │
+│                         FastAPI                              │
+│                                                              │
+│  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐  │
+│  │ Parser STEP  │  │ Motor CNC    │  │ Gerador de Docs    │  │
+│  │ (pythonOCC)  │  │              │  │                    │  │
+│  └──────────────┘  └──────────────┘  └────────────────────┘  │
+└──────────────────────┬───────────────────────────────────────┘
+                       │
+┌──────────────────────▼───────────────────────────────────────┐
+│                       Banco de Dados                         │
+│                        PostgreSQL                            │
+└──────────────────────┬───────────────────────────────────────┘
+                       │
+                       ▼
+            ┌──────────────────────┐
+            │   Máquinas HOMAG     │
+            │         e            │
+            │      ERP Senior      │
+            └──────────────────────┘
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Stack Tecnológico
 
 **Frontend**
 - React 18
@@ -87,70 +87,65 @@ All in one platform, with just a few clicks.
 **Backend**
 - Python 3.11
 - FastAPI
-- pythonOCC (CAD parsing)
-- SQLAlchemy
+- pythonOCC (leitura e processamento de geometria CAD)
+- SQLAlchemy + Alembic
 
-**Database**
+**Banco de Dados**
 - PostgreSQL
 
-**Integrations**
-- Senior ERP (REST API)
-- HOMAG Machines
+**Infraestrutura**
+- Docker Compose (Nginx + FastAPI + PostgreSQL)
+- Deploy em servidor Linux
+
+**Integrações**
+- ERP Senior (REST API)
+- Máquinas CNC HOMAG/Weeke (formato MPR)
 
 ---
 
-## 📊 Results
+## 📸 Capturas de Tela
 
-| Metric | Before | After | Impact |
-|--------|--------|-------|--------|
-| Programming time per piece | ~2 hours | ~5 minutes | **96% reduction** |
-| Documentation errors | Frequent | Rare | **40% reduction** |
-| Information lookup time | 30+ min | < 1 min | **50% reduction** |
-| Teams using the platform | - | 5 areas | P&D, Engineering, Processes, Quality, Management |
-| Active users | 8 
+### Parser de Arquivo STEP
+![Parser STEP](./assets/step-parser.png)
 
----
+### Editor de Furação CNC
+![Editor de Furação](./assets/cnc-editor.png)
 
-## 📸 Screenshots
-
-### STEP File Parser
-![STEP Parser](./assets/step-parser.png)
-
-### CNC Drilling Editor
-![Drilling Editor](./assets/cnc-editor.png)
-
-### Technical Documentation
-![Documentation](./assets/example-doc.png)
+### Documentação Técnica Gerada
+![Documentação](./assets/example-doc.png)
 
 ---
 
-## 🚀 How It Works
+## 🚀 Como Funciona
 
-1. **Upload STEP file** — Import 3D CAD model from TopSolid or other CAD software
-2. **Automatic parsing** — pythonOCC extracts geometry, dimensions, and drilling points
-3. **Review & edit** — Use the visual editor to adjust drilling patterns if needed
-4. **Generate CNC code** — One click to create machine-ready code
-5. **Export documentation** — Auto-generated technical sheets for production team
-
----
-
-## 🏭 Context
-
-CoreWood was developed at **Linea Brasil**, a furniture manufacturing company in Arapongas, PR, Brazil. The platform is used daily by the Product Development, Processes, and Engineering teams to streamline the journey from design to production.
+1. **Upload do arquivo STEP** — Importe o modelo 3D exportado do TopSolid ou outro software CAD
+2. **Leitura automática** — O pythonOCC extrai geometria, dimensões e pontos de furação
+3. **Revisão e ajuste** — Use o editor visual para corrigir ou complementar padrões de furação
+4. **Geração do código CNC** — Um clique cria o arquivo pronto para envio à máquina
+5. **Exportação da documentação** — Fichas técnicas geradas automaticamente para a equipe de produção
+6. **Relatório para Importação** — Roteiro de Produção para importar para o ERP
 
 ---
 
-## 👤 Author
+## 🏭 Contexto
 
-**Enzo Koyano Pedriça**
-- [LinkedIn](www.linkedin.com/in/enzo-koyano-pedriça)
+O CoreWood foi desenvolvido na **Linea Brasil**, empresa fabricante de móveis localizada em Arapongas, PR. A plataforma esta em desenvolvimento onde será utilizada diariamente pelas equipes de Desenvolvimento de Produto, Processos e Engenharia, integrando o fluxo completo do projeto à produção.
+
+O CoreWood nasceu da necessidade de centralizar as informações de produto em um único lugar. A partir de uma entrada de dados — como um arquivo STEP ou uma ficha de peça — a plataforma gera automaticamente tudo que a produção precisa: código CNC para as máquinas, documentação técnica de furação e usinagem, e o roteiro de produção por peça.
+---
+
+## 👤 Desenvolvedor
+
+**Enzo Koyano Pedriça**  
+
+- [LinkedIn](https://www.linkedin.com/in/enzo-koyano-pedriça)
 - [GitHub](https://github.com/enzokpedrica)
-- [Email](mailto:enzo.pedrica@gmail.com)
+- [E-mail](mailto:enzo.pedrica@gmail.com)
 
 ---
 
-## 📄 License
+## 📄 Licença
 
-This repository contains documentation only. The source code is proprietary.
+Este repositório contém apenas documentação. O código-fonte é proprietário.
 
 ---
